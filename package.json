@@ -4,9 +4,13 @@
   "version": "1.0.0",
   "description": "Rich inline or toolbar text editing",
   "scripts": {
+    "lint": "tslint -c tslint.json '**/*.ts' '**/*.tsx' --exclude '**/node_modules/**'",
     "pretest": "tsc && npm run lint",
-    "test": "karma start --single-run --codeCoverage && node tests/remap.js",
-    "lint": "tslint -c tslint.json '**/*.ts' '**/*.tsx' --exclude '**/node_modules/**'"
+    "start-selenium-server": "selenium-standalone start",
+    "unit-test": "karma start --single-run --codeCoverage && node tests/remap.js",
+    "unit-test-background": "karma start",
+    "integration-test": "wdio ./wdio.conf.js",
+    "test": "npm run integration-test && npm run unit-test"
   },
   "repository": {
     "type": "git",
@@ -25,6 +29,7 @@
     "@types/quill": "0.0.31",
     "@types/react": "^15.0.37",
     "@types/react-dom": "^15.5.1",
+    "chai": "^4.1.0",
     "check-dependencies": "^1.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
@@ -68,9 +73,13 @@
     "tslint": "^5.5.0",
     "tslint-eslint-rules": "^4.1.0",
     "typescript": "^2.4.1",
+    "wdio-browserstack-service": "^0.1.11",
+    "wdio-dot-reporter": "0.0.8",
+    "wdio-jasmine-framework": "^0.3.1",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-merge": "^4.1.0"
+    "webpack-merge": "^4.1.0",
+    "wrench": "^1.5.9"
   },
   "dependencies": {
     "classnames": "^2.2.5",

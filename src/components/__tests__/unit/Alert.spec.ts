@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import { DOM, createElement } from "react";
 
-import { Alert } from "../Alert";
+import { Alert } from "../../Alert";
 
 describe("Alert", () => {
     const renderAlert = (message?: string) => shallow(createElement(Alert, { message }));
