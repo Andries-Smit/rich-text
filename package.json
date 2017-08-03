@@ -7,7 +7,7 @@
     "lint": "tslint -c tslint.json '**/*.ts' '**/*.tsx' --exclude '**/node_modules/**'",
     "pretest": "tsc && npm run lint",
     "unitTest": "karma start --single-run --codeCoverage && node tests/remap.js",
-    "integrationTest": "wdio ./wdio.conf.js",
+    "integrationTest": "tsc -p ./tests/e2e/tsconfig.json && wdio ./tests/e2e/wdio.conf.js",
     "test": "npm run unitTest && npm run integrationTest"
   },
   "repository": {
@@ -20,14 +20,14 @@
   },
   "devDependencies": {
     "@types/classnames": "^2.2.0",
-    "@types/core-js": "0.9.36",
+    "@types/core-js": "^0.9.42",
     "@types/enzyme": "^2.8.2",
     "@types/jasmine": "^2.5.53",
     "@types/karma": "^0.13.36",
     "@types/quill": "0.0.31",
     "@types/react": "^15.0.37",
     "@types/react-dom": "^15.5.1",
-    "chai": "^4.1.0",
+    "@types/webdriverio": "^4.8.2",
     "check-dependencies": "^1.0.1",
     "copy-webpack-plugin": "^4.0.1",
     "core-js": "^2.4.1",
@@ -75,6 +75,7 @@
     "wdio-dot-reporter": "0.0.8",
     "wdio-jasmine-framework": "^0.3.1",
     "wdio-selenium-standalone-service": "0.0.9",
+    "wdio-spec-reporter": "^0.1.0",
     "webdriverio": "^4.8.0",
     "webpack": "^3.1.0",
     "webpack-dev-server": "^2.5.1",

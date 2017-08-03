@@ -1,7 +1,7 @@
 import { ShallowWrapper, shallow } from "enzyme";
 import { DOM, createElement } from "react";
 
-import { RichText, RichTextProps } from "../../RichText";
+import { RichText, RichTextProps } from "../RichText";
 
 describe("RichText", () => {
     const renderTextEditor = (props: RichTextProps) => shallow(createElement(RichText, { ...props }));
